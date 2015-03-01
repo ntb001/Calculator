@@ -11,7 +11,7 @@ class PlotView: UIView {
     private var axesHelper = AxesDrawer()
     
     @IBInspectable
-    var scale: CGFloat = CGFloat(50) {
+    var pointsPerUnit: CGFloat = CGFloat(50) {
         didSet {
             setNeedsDisplay()
         }
@@ -37,8 +37,10 @@ class PlotView: UIView {
     }
     
     private func setup() {
-        let recognizer = UIPanGestureRecognizer(target: self, action: "pan:")
-        addGestureRecognizer(recognizer)
+        let panRecognizer = UIPanGestureRecognizer(target: self, action: "pan:")
+        addGestureRecognizer(panRecognizer)
+        let pinchRecognizer = UIPinchGestureRecognizer(target: self, action: "scale:")
+        addGestureRecognizer(pinchRecognizer)
     }
 
     override func drawRect(rect: CGRect) {
@@ -46,7 +48,7 @@ class PlotView: UIView {
             plotOrigin = CGPoint(x: rect.midX, y: rect.midY)
         }
         axesHelper.contentScaleFactor = contentScaleFactor
-        axesHelper.drawAxesInRect(rect, origin: plotOrigin, pointsPerUnit: scale)
+        axesHelper.drawAxesInRect(rect, origin: plotOrigin, pointsPerUnit: pointsPerUnit)
     }
     
     func pan(gesture: UIPanGestureRecognizer) {
@@ -56,6 +58,16 @@ class PlotView: UIView {
             let translation = gesture.translationInView(self)
             plotOrigin = CGPoint(x: plotOrigin.x + translation.x, y: plotOrigin.y + translation.y)
             gesture.setTranslation(CGPointZero, inView: self)
+        default: break
+        }
+    }
+    
+    func scale(gesture: UIPinchGestureRecognizer) {
+        switch gesture.state {
+        case .Changed: fallthrough
+        case .Ended:
+            pointsPerUnit *= gesture.scale
+            gesture.scale = 1
         default: break
         }
     }
