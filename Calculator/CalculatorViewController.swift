@@ -7,8 +7,8 @@ import UIKit
 
 class CalculatorViewController: UIViewController {
     
-    var brain = CalculatorBrain()
-    var userIsInTheMiddleOfTypingANumber = false
+    private var brain = CalculatorBrain()
+    private var userIsInTheMiddleOfTypingANumber = false
     
     @IBOutlet weak var display: UILabel!
     @IBOutlet weak var history: UILabel!

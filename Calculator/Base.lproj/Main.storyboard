@@ -21,30 +21,43 @@
             </objects>
             <point key="canvasLocation" x="-30" y="290"/>
         </scene>
-        <!--View Controller-->
+        <!--Plot View Controller-->
         <scene sceneID="MIE-iN-W9f">
             <objects>
-                <viewController id="Rnr-21-rHe" sceneMemberID="viewController">
+                <viewController id="Rnr-21-rHe" customClass="PlotViewController" customModule="Calculator" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5cB-TL-xe8"/>
                         <viewControllerLayoutGuide type="bottom" id="4Zg-m4-T5c"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Zcf-O3-5tB">
+                    <view key="view" contentMode="redraw" id="Zcf-O3-5tB">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="SPV-Ha-4EY" customClass="PlotView" customModule="Calculator" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="SPV-Ha-4EY" firstAttribute="leading" secondItem="Zcf-O3-5tB" secondAttribute="leading" id="AAg-nx-44p"/>
+                            <constraint firstItem="SPV-Ha-4EY" firstAttribute="bottom" secondItem="4Zg-m4-T5c" secondAttribute="top" id="G8J-PB-31S"/>
+                            <constraint firstAttribute="trailing" secondItem="SPV-Ha-4EY" secondAttribute="trailing" id="Jem-zd-VcW"/>
+                            <constraint firstItem="SPV-Ha-4EY" firstAttribute="top" secondItem="5cB-TL-xe8" secondAttribute="bottom" id="Yme-du-UYN"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="J1R-mB-hcI"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZF7-Jd-fnd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-28" y="1040"/>
+            <point key="canvasLocation" x="784" y="1040"/>
         </scene>
         <!--Master FirstUI Split View Controller-->
         <scene sceneID="xuK-eY-1qn">
             <objects>
                 <splitViewController id="laD-ih-Pnf" customClass="MasterFirstUISplitViewController" customModule="Calculator" customModuleProvider="target" sceneMemberID="viewController">
                     <connections>
-                        <segue destination="Rnr-21-rHe" kind="relationship" relationship="detailViewController" id="P45-yY-tf6"/>
+                        <segue destination="NQN-HQ-jdF" kind="relationship" relationship="detailViewController" id="P45-yY-tf6"/>
                         <segue destination="eQT-a4-JmV" kind="relationship" relationship="masterViewController" id="lDp-h8-18t"/>
                     </connections>
                 </splitViewController>
@@ -115,7 +128,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <segue destination="Rnr-21-rHe" kind="showDetail" identifier="Show Plot" id="enY-xy-Abx"/>
+                                    <segue destination="NQN-HQ-jdF" kind="showDetail" identifier="Show Plot" id="enY-xy-Abx"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="250" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ry0-nt-poH">
@@ -652,6 +665,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="720" y="290"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="uo0-v0-rkN">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NQN-HQ-jdF" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="o7Z-lc-Usy">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Rnr-21-rHe" kind="relationship" relationship="rootViewController" id="1bz-ti-wWN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T39-bq-gIY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-28" y="1040"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
