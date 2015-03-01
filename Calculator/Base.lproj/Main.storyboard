@@ -39,10 +39,10 @@
             </objects>
             <point key="canvasLocation" x="-28" y="1040"/>
         </scene>
-        <!--Split View Controller-->
+        <!--Master FirstUI Split View Controller-->
         <scene sceneID="xuK-eY-1qn">
             <objects>
-                <splitViewController id="laD-ih-Pnf" sceneMemberID="viewController">
+                <splitViewController id="laD-ih-Pnf" customClass="MasterFirstUISplitViewController" customModule="Calculator" customModuleProvider="target" sceneMemberID="viewController">
                     <connections>
                         <segue destination="Rnr-21-rHe" kind="relationship" relationship="detailViewController" id="P45-yY-tf6"/>
                         <segue destination="eQT-a4-JmV" kind="relationship" relationship="masterViewController" id="lDp-h8-18t"/>
@@ -655,6 +655,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="enY-xy-Abx"/>
+        <segue reference="P45-yY-tf6"/>
     </inferredMetricsTieBreakers>
 </document>

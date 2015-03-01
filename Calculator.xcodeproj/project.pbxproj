@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2808AFD81AA2BFBF00FDE63F /* MasterFirstUISplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2808AFD71AA2BFBF00FDE63F /* MasterFirstUISplitViewController.swift */; };
 		2809BC781A81957300467BAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2809BC771A81957300467BAF /* AppDelegate.swift */; };
 		2809BC7A1A81957300467BAF /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2809BC791A81957300467BAF /* CalculatorViewController.swift */; };
 		2809BC7D1A81957300467BAF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2809BC7B1A81957300467BAF /* Main.storyboard */; };
@@ -27,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2808AFD71AA2BFBF00FDE63F /* MasterFirstUISplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterFirstUISplitViewController.swift; sourceTree = "<group>"; };
 		2809BC721A81957300467BAF /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2809BC761A81957300467BAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2809BC771A81957300467BAF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -79,8 +81,8 @@
 		2809BC741A81957300467BAF /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
-				2809BC791A81957300467BAF /* CalculatorViewController.swift */,
 				2809BC7B1A81957300467BAF /* Main.storyboard */,
+				2809BC791A81957300467BAF /* CalculatorViewController.swift */,
 				2875C3731A8435160035B228 /* CalculatorBrain.swift */,
 				2809BC751A81957300467BAF /* Supporting Files */,
 			);
@@ -90,6 +92,7 @@
 		2809BC751A81957300467BAF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2808AFD71AA2BFBF00FDE63F /* MasterFirstUISplitViewController.swift */,
 				2809BC801A81957300467BAF /* LaunchScreen.xib */,
 				2809BC7E1A81957300467BAF /* Images.xcassets */,
 				2809BC771A81957300467BAF /* AppDelegate.swift */,
@@ -217,6 +220,7 @@
 			files = (
 				2875C3741A8435160035B228 /* CalculatorBrain.swift in Sources */,
 				2809BC7A1A81957300467BAF /* CalculatorViewController.swift in Sources */,
+				2808AFD81AA2BFBF00FDE63F /* MasterFirstUISplitViewController.swift in Sources */,
 				2809BC781A81957300467BAF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
