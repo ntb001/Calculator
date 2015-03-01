@@ -105,6 +105,12 @@ class CalculatorBrain {
         }
     }
     
+    func removeLast() {
+        if !opStack.isEmpty {
+            opStack.removeLast()
+        }
+    }
+    
     func evaluate() -> Double? {
         return evaluate(opStack).result
     }
@@ -139,7 +145,7 @@ class CalculatorBrain {
         return (nil, remainingOps)
     }
     
-    var description: String {
+    var description: String? {
         get {
             var vars = ""
             for (key, value) in variableValues {
@@ -166,7 +172,13 @@ class CalculatorBrain {
                     output = subOut + "\n" + output
                 }
             }
-            return vars + output
+            output = vars + output
+            if output.isEmpty {
+                return nil
+            }
+            else {
+                return output
+            }
         }
     }
     
@@ -209,5 +221,4 @@ class CalculatorBrain {
             return ("\(op)", op.precedence, ops)
         }
     }
-    
 }

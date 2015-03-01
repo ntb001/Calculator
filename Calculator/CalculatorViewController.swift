@@ -18,13 +18,7 @@ class CalculatorViewController: UIViewController {
             return NSNumberFormatter().numberFromString(display.text!)?.doubleValue
         }
         set {
-            if newValue != nil {
-                display.text = "\(newValue!)"
-            }
-            else {
-                display.text = " "
-                userIsInTheMiddleOfTypingANumber = false
-            }
+            display.text = newValue?.description ?? "0"
         }
     }
     
@@ -37,12 +31,7 @@ class CalculatorViewController: UIViewController {
         }
         else {
             userIsInTheMiddleOfTypingANumber = true
-            if digit == "." {
-                display.text = "0."
-            }
-            else {
-                display.text = digit
-            }
+            display.text = digit
         }
     }
     
@@ -58,18 +47,6 @@ class CalculatorViewController: UIViewController {
         }
         brain.pushOperand("M")
         updateDisplay()
-    }
-    
-    @IBAction func backspace() {
-        if userIsInTheMiddleOfTypingANumber {
-            if countElements(display.text!) > 1 {
-                display.text = dropLast(display.text!)
-            }
-            else {
-                userIsInTheMiddleOfTypingANumber = false
-                display.text = "0"
-            }
-        }
     }
 
     @IBAction func enter() {
@@ -95,13 +72,22 @@ class CalculatorViewController: UIViewController {
     
     private func updateDisplay() {
         displayValue = brain.evaluate()
-        history.text = brain.description
+        history.text = brain.description ?? " "
     }
     
     @IBAction func clear() {
-        display.text = "0"
-        history.text = " "
-        brain = CalculatorBrain()
+        if userIsInTheMiddleOfTypingANumber {
+            if countElements(display.text!) > 1 {
+                display.text = dropLast(display.text!)
+            }
+            else {
+                userIsInTheMiddleOfTypingANumber = false
+                display.text = "0"
+            }
+        }
+        else {
+            brain.removeLast()
+            updateDisplay()
+        }
     }
 }
-
