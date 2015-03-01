@@ -1,11 +1,11 @@
 //
-//  ViewController.swift
+//  CalculatorViewController.swift
 //  Calculator
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class CalculatorViewController: UIViewController {
     
     var brain = CalculatorBrain()
     var userIsInTheMiddleOfTypingANumber = false
