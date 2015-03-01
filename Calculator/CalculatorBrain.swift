@@ -159,7 +159,12 @@ class CalculatorBrain {
             while !remainingOps.isEmpty {
                 var subOut: String
                 (subOut, _, remainingOps) = describe(remainingOps)
-                output = subOut + "\n" + output
+                if output.isEmpty {
+                    output = subOut
+                }
+                else {
+                    output = subOut + "\n" + output
+                }
             }
             return vars + output
         }

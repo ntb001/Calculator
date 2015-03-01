@@ -22,7 +22,7 @@ class ViewController: UIViewController {
                 display.text = "\(newValue!)"
             }
             else {
-                display.text = ""
+                display.text = " "
                 userIsInTheMiddleOfTypingANumber = false
             }
         }
@@ -100,7 +100,7 @@ class ViewController: UIViewController {
     
     @IBAction func clear() {
         display.text = "0"
-        history.text = ""
+        history.text = " "
         brain = CalculatorBrain()
     }
 }
